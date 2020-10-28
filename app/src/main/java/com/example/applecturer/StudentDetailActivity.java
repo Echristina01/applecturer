@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.applecturer.model.ModelStudent;
+import com.example.applecturer.model.StudentModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class StudentDetailActivity extends AppCompatActivity {
 
     DatabaseReference dbStudent;
-    ArrayList<ModelStudent> studentList = new ArrayList<>();
-    ModelStudent currentStudent;
+    ArrayList<StudentModel> studentList = new ArrayList<>();
+    StudentModel currentStudent;
     String uid;
     EditText name, password, email, nim, address, age;
     AppCompatActivity currentActivity;
@@ -51,10 +51,10 @@ public class StudentDetailActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 studentList.clear();
                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    ModelStudent modelStudent = childSnapshot.getValue(ModelStudent.class);
-                    studentList.add(modelStudent);
-                    if(modelStudent.getUid().equals(uid)){
-                        currentStudent = modelStudent;
+                    StudentModel studentModel = childSnapshot.getValue(StudentModel.class);
+                    studentList.add(studentModel);
+                    if(studentModel.getUid().equals(uid)){
+                        currentStudent = studentModel;
                         ((Toolbar) findViewById(R.id.toolbar)).setTitle("Edit " + currentStudent.getName());
                         name.setText(currentStudent.getName());
                         nim.setText(currentStudent.getNim());

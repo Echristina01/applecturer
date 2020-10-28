@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applecturer.R;
 import com.example.applecturer.StudentDetailActivity;
-import com.example.applecturer.model.ModelStudent;
+import com.example.applecturer.model.StudentModel;
 
 import java.util.ArrayList;
 
 public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentViewHolder> {
-    private ArrayList<ModelStudent> studentList;
+    private ArrayList<StudentModel> studentList;
     private AppCompatActivity parentActivity;
 
     //    Inner Class
@@ -33,7 +33,7 @@ public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentV
         }
     }
 
-    public AdapterStudent(ArrayList<ModelStudent> studentList, AppCompatActivity parentActivity) {
+    public AdapterStudent(ArrayList<StudentModel> studentList, AppCompatActivity parentActivity) {
         this.studentList = studentList;
         this.parentActivity = parentActivity;
     }
@@ -57,7 +57,7 @@ public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentV
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        ModelStudent currentStudent = this.studentList.get(position);
+        StudentModel currentStudent = this.studentList.get(position);
         holder.textName.setText(currentStudent.getName());
         holder.textAddress.setText(currentStudent.getAddress());
         holder.textAge.setText(currentStudent.getAge() + " years old");

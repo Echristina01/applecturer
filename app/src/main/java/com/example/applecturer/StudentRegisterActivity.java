@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.applecturer.model.ModelStudent;
+import com.example.applecturer.model.StudentModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +34,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
     EditText inputEmail, inputName, inputPass, inputNim, inputAge, inputAddress;
     Button buttonRegister;
     String uid = "", email = "", pass = "", name = "", nim = "", age = "", gender = "male", address = "", action = "";
-    ModelStudent student;
+    StudentModel student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
 //                            dialog.cancel();
                             uid = mAuth.getCurrentUser().getUid();
                             System.out.println(uid);
-                            ModelStudent student = new ModelStudent(uid, email, pass, name, nim, gender, age, address);
+                            StudentModel student = new StudentModel(uid, email, pass, name, nim, gender, age, address);
                             mDatabase.child(uid).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

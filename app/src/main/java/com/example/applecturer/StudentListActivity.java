@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applecturer.adapter.AdapterStudent;
-import com.example.applecturer.model.ModelStudent;
+import com.example.applecturer.model.StudentModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class StudentListActivity extends AppCompatActivity {
-    public static ArrayList<ModelStudent> studentList;
+    public static ArrayList<StudentModel> studentList;
 
     private RecyclerView rv;
     private RecyclerView.Adapter rvAdapter;
@@ -43,15 +43,15 @@ public class StudentListActivity extends AppCompatActivity {
 
         dbstudent = FirebaseDatabase.getInstance().getReference("student");
 
-        studentList = new ArrayList<ModelStudent>();
+        studentList = new ArrayList<StudentModel>();
 
         dbstudent.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 studentList.clear();
                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    ModelStudent modelStudent = childSnapshot.getValue(ModelStudent.class);
-                    studentList.add(modelStudent);
+                    StudentModel studentModel = childSnapshot.getValue(StudentModel.class);
+                    studentList.add(studentModel);
                     System.out.println("ADDING TO STUDENT LIST");
                 }
                 System.out.println("STUDENT LIST SIZE " + studentList.size());

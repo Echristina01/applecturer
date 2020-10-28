@@ -3,18 +3,18 @@ package com.example.applecturer.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ModelStudent implements Parcelable {
+public class StudentModel implements Parcelable {
     private String uid, email, password, name, nim, gender, age, address;
 
-    public ModelStudent(){}
+    public StudentModel(){}
 
-    public ModelStudent(String name, String email, String age){
+    public StudentModel(String name, String email, String age){
         this.email = email;
         this.name = name;
         this.age = age;
     }
 
-    public ModelStudent(String uid, String email, String password, String name, String nim, String gender, String age, String address) {
+    public StudentModel(String uid, String email, String password, String name, String nim, String gender, String age, String address) {
         this.uid = uid;
         this.email = email;
         this.password = password;
@@ -25,7 +25,7 @@ public class ModelStudent implements Parcelable {
         this.address = address;
     }
 
-    protected ModelStudent(Parcel in) {
+    protected StudentModel(Parcel in) {
         uid = in.readString();
         email = in.readString();
         password = in.readString();
@@ -36,15 +36,15 @@ public class ModelStudent implements Parcelable {
         address = in.readString();
     }
 
-    public static final Creator<ModelStudent> CREATOR = new Creator<ModelStudent>() {
+    public static final Creator<StudentModel> CREATOR = new Creator<StudentModel>() {
         @Override
-        public ModelStudent createFromParcel(Parcel in) {
-            return new ModelStudent(in);
+        public StudentModel createFromParcel(Parcel in) {
+            return new StudentModel(in);
         }
 
         @Override
-        public ModelStudent[] newArray(int size) {
-            return new ModelStudent[size];
+        public StudentModel[] newArray(int size) {
+            return new StudentModel[size];
         }
     };
 
