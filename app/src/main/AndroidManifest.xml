@@ -21,15 +21,11 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".StudentLoginActivity"></activity>
+        <activity android:name=".StudentRegisterActivity"></activity>
         <activity android:name=".StudentListActivity"></activity>
         <activity android:name=".StudentDashboardActivity"></activity>
         <activity android:name=".StudentDetailActivity"></activity>
-
-        <activity android:name=".delete.AddCourseActivity"></activity>
-        <activity android:name=".delete.AddLecturerActivity"></activity>
-        <activity android:name=".delete.MainMenuActivity"></activity>
     </application>
 
 </manifest>

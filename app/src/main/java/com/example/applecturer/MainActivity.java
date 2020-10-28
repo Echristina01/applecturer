@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                startActivity(new Intent(MainActivity.this, StudentRegisterActivity.class));
             }
         });
         findViewById(R.id.buttonStudentList).setOnClickListener(new View.OnClickListener() {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, StudentLoginActivity.class));
             }
         });
     }

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.applecturer.model.AdapterStudent;
+import com.example.applecturer.adapter.AdapterStudent;
 import com.example.applecturer.model.ModelStudent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +29,7 @@ public class StudentListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.liststudent);
+        setContentView(R.layout.student_list_recycler);
         renderView();
     }
 

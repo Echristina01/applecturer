@@ -13,16 +13,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class StudentLoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private String email, password;
-    private LoginActivity currentActivity = this;
+    private StudentLoginActivity currentActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.student_login);
 
         mAuth = FirebaseAuth.getInstance();
 

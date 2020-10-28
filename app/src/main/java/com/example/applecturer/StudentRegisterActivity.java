@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity {
+public class StudentRegisterActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 //        dialog = Glovar.loadingDialog(RegisterActivity.this);
         mDatabase = FirebaseDatabase.getInstance().getReference("student");
-        setContentView(R.layout.register);
+        this.setContentView(R.layout.student_register);
 
         inputEmail = findViewById(R.id.inputEmail);
         inputPass = findViewById(R.id.inputPassword);
@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         System.out.println("Registering " + name);
         System.out.println("Email: " + email + ", Pass: " + pass);
 
-        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(RegisterActivity.this,
+        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(StudentRegisterActivity.this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -100,13 +100,13 @@ public class RegisterActivity extends AppCompatActivity {
                             mDatabase.child(uid).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(RegisterActivity.this, "Student register successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(StudentRegisterActivity.this, "Student student_register successful", Toast.LENGTH_SHORT).show();
                                     currentActivity.finish();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(RegisterActivity.this, "Student register failed - " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(StudentRegisterActivity.this, "Student student_register failed - " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
                             mAuth.signOut();
@@ -115,11 +115,11 @@ public class RegisterActivity extends AppCompatActivity {
                             try {
                                 throw task.getException();
                             } catch (FirebaseAuthInvalidCredentialsException malFormed) {
-                                Toast.makeText(RegisterActivity.this, "Invalid email or password!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StudentRegisterActivity.this, "Invalid email or password!", Toast.LENGTH_SHORT).show();
                             } catch (FirebaseAuthUserCollisionException existEmail) {
-                                Toast.makeText(RegisterActivity.this, "Email already registered!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StudentRegisterActivity.this, "Email already registered!", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
-                                Toast.makeText(RegisterActivity.this, "Register failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StudentRegisterActivity.this, "Register failed!", Toast.LENGTH_SHORT).show();
                             }
 //                            dialog.cancel();
                         }

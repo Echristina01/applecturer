@@ -1,4 +1,4 @@
-package com.example.applecturer.model;
+package com.example.applecturer.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applecturer.R;
 import com.example.applecturer.StudentDetailActivity;
+import com.example.applecturer.model.ModelStudent;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentV
     @NonNull
     @Override
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.liststudent_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.student_list_card, parent, false);
         final StudentViewHolder studentViewHolder = new StudentViewHolder(v);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
