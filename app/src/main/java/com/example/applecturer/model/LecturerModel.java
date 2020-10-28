@@ -4,12 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class LecturerModel implements Parcelable {
-    private String id, name, expertise, gender;
+    private String name, expertise, gender;
+    private int id;
 
     public LecturerModel() {
     }
 
-    public LecturerModel(String id, String name, String expertise, String gender) {
+    public LecturerModel(int id, String name, String expertise, String gender) {
         this.id = id;
         this.name = name;
         this.expertise = expertise;
@@ -17,7 +18,7 @@ public class LecturerModel implements Parcelable {
     }
 
     protected LecturerModel(Parcel in) {
-        id = in.readString();
+        id = in.readInt();
         name = in.readString();
         expertise = in.readString();
         gender = in.readString();
@@ -35,11 +36,11 @@ public class LecturerModel implements Parcelable {
         }
     };
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -74,7 +75,7 @@ public class LecturerModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeString(expertise);
     }

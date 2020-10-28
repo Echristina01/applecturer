@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, StudentLoginActivity.class));
             }
         });
+        findViewById(R.id.buttonAddLecturer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LecturerAddActivity.class));
+            }
+        });
     }
     @Override
     protected void onRestart() {

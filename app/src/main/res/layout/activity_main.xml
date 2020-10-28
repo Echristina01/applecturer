@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="20dp"
-            android:text="Register"
+            android:text="Register Student"
             app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
 
         <Button
@@ -47,6 +47,46 @@
             android:padding="20dp"
             android:text="Student List"
             app:layout_constraintTop_toBottomOf="@id/buttonRegister" />
+
+        <Button
+            android:id="@+id/buttonAddLecturer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStudentList"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Add Lecturer"
+            />
+
+        <Button
+            android:id="@+id/buttonLecturerList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddLecturer"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Lecturer List"
+            />
+
+        <Button
+            android:id="@+id/buttonAddCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLecturerList"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Add Course"
+            />
+
+        <Button
+            android:id="@+id/buttonCourseList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddCourse"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Course List"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
