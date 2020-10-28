@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,8 +34,9 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
     Dialog dialog;
     EditText inputEmail, inputName, inputPass, inputNim, inputAge, inputAddress;
+    RadioGroup rgGender;
     Button buttonRegister;
-    String uid = "", email = "", pass = "", name = "", nim = "", age = "", gender = "male", address = "", action = "";
+    String uid = "", email = "", pass = "", name = "", nim = "", age = "", gender = "", address = "", action = "";
     StudentModel student;
 
     @Override
@@ -41,7 +44,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         currentActivity = this;
         mAuth = FirebaseAuth.getInstance();
-//        dialog = Glovar.loadingDialog(RegisterActivity.this);
         mDatabase = FirebaseDatabase.getInstance().getReference("student");
         this.setContentView(R.layout.student_register);
 
@@ -51,6 +53,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         inputNim = findViewById(R.id.inputNim);
         inputAge = findViewById(R.id.inputAge);
         inputAddress = findViewById(R.id.inputAddress);
+        rgGender = findViewById(R.id.rgGender);
 
         buttonRegister = findViewById(R.id.buttonSubmit);
 
@@ -65,9 +68,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
     }
 
     private void register() {
@@ -78,8 +78,11 @@ public class StudentRegisterActivity extends AppCompatActivity {
         name = inputName.getText().toString();
         nim = inputNim.getText().toString();
         age = inputAge.getText().toString();
-        gender = "male";
         address = inputAddress.getText().toString();
+
+        RadioButton radioButton = (RadioButton) findViewById(rgGender.getCheckedRadioButtonId());
+        gender = (String) radioButton.getText();
+
         action = "";
 
 //        dialog.show();

@@ -149,7 +149,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Password"
+                android:text="Gender"
                 android:textSize="20sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@id/inputAge"/>
@@ -168,7 +168,7 @@
                     android:id="@+id/radioButtonMale"
                     android:layout_width="140dp"
                     android:layout_height="45dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="49dp"
                     android:background="@android:color/holo_blue_bright"
                     android:text="Male" />
 
