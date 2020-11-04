@@ -49,6 +49,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LecturerAddActivity.class));
             }
         });
+        findViewById(R.id.buttonLecturerList).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LecturerListActivity.class));
+            }
+        });
+        findViewById(R.id.buttonAddCourse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CourseAddActivity.class));
+            }
+        });
+        findViewById(R.id.buttonCourseList).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CourseListActivity.class));
+            }
+        });
     }
     @Override
     protected void onRestart() {

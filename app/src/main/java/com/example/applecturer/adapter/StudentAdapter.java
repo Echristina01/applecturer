@@ -16,7 +16,7 @@ import com.example.applecturer.model.StudentModel;
 
 import java.util.ArrayList;
 
-public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentViewHolder> {
+public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
     private ArrayList<StudentModel> studentList;
     private AppCompatActivity parentActivity;
 
@@ -33,7 +33,7 @@ public class AdapterStudent extends RecyclerView.Adapter<AdapterStudent.StudentV
         }
     }
 
-    public AdapterStudent(ArrayList<StudentModel> studentList, AppCompatActivity parentActivity) {
+    public StudentAdapter(ArrayList<StudentModel> studentList, AppCompatActivity parentActivity) {
         this.studentList = studentList;
         this.parentActivity = parentActivity;
     }

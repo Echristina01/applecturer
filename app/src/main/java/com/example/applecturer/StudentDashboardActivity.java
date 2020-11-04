@@ -1,5 +1,6 @@
 package com.example.applecturer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -25,8 +26,16 @@ public class StudentDashboardActivity extends AppCompatActivity {
         String email = mAuth.getCurrentUser().getEmail();
         String uuid = mAuth.getCurrentUser().getUid();
 
-        ((TextView)findViewById(R.id.textUser)).setText("Welcome, " + email + "!");
+        ((TextView) findViewById(R.id.textUser)).setText("Welcome, " + email + "!");
 
+        findViewById(R.id.buttonTakeCourse).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(StudentDashboardActivity.this, CourseTakeListActivity.class));
+                    }
+                }
+        );
         findViewById(R.id.buttonLogout).setOnClickListener(
                 new View.OnClickListener() {
                     @Override

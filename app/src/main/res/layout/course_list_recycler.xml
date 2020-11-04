@@ -15,7 +15,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:title="List of Lecturers" />
+        app:title="List of Courses" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

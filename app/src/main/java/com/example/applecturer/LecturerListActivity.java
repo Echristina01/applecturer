@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.applecturer.adapter.StudentAdapter;
-import com.example.applecturer.model.StudentModel;
+import com.example.applecturer.adapter.LecturerAdapter;
+import com.example.applecturer.model.LecturerModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,19 +17,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class StudentListActivity extends AppCompatActivity {
-    public static ArrayList<StudentModel> studentList;
+public class LecturerListActivity extends AppCompatActivity {
+    public static ArrayList<LecturerModel> lecturerList;
 
     private RecyclerView rv;
     private RecyclerView.Adapter rvAdapter;
     private RecyclerView.LayoutManager rvLayout;
-    private DatabaseReference dbstudent;
-    private StudentListActivity parentclass = this;
+    private DatabaseReference dblecturer;
+    private LecturerListActivity parentclass = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_list_recycler);
+        setContentView(R.layout.lecturer_list_recycler);
         renderView();
     }
 
@@ -41,25 +41,25 @@ public class StudentListActivity extends AppCompatActivity {
 
     public void renderView(){
 
-        dbstudent = FirebaseDatabase.getInstance().getReference("student");
+        dblecturer = FirebaseDatabase.getInstance().getReference("lecturers");
 
-        studentList = new ArrayList<StudentModel>();
+        lecturerList = new ArrayList<LecturerModel>();
 
-        dbstudent.addListenerForSingleValueEvent(new ValueEventListener() {
+        dblecturer.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                studentList.clear();
+                lecturerList.clear();
                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    StudentModel studentModel = childSnapshot.getValue(StudentModel.class);
-                    studentList.add(studentModel);
-                    System.out.println("ADDING TO STUDENT LIST");
+                    LecturerModel lecturerModel = childSnapshot.getValue(LecturerModel.class);
+                    lecturerList.add(lecturerModel);
+                    System.out.println("ADDING TO LECTURER LIST");
                 }
-                System.out.println("STUDENT LIST SIZE " + studentList.size());
+                System.out.println("LECTURER LIST SIZE " + lecturerList.size());
 
                 rv = (RecyclerView) findViewById(R.id.recyclerView);
                 rv.setHasFixedSize(true);
                 rvLayout = new LinearLayoutManager(parentclass);
-                rvAdapter = new StudentAdapter(studentList, parentclass);
+                rvAdapter = new LecturerAdapter(lecturerList, parentclass);
 
                 rv.setLayoutManager(rvLayout);
                 rv.setAdapter(rvAdapter);

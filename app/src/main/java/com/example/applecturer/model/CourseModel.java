@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CourseModel implements Parcelable {
-    private String id, name, lecturer_id, start, end;
-    private int day;
+    private String id, name, lecturer_id;
+    private int day, start, end;
 
     public CourseModel() {
     }
@@ -14,8 +14,8 @@ public class CourseModel implements Parcelable {
         id = in.readString();
         name = in.readString();
         lecturer_id = in.readString();
-        start = in.readString();
-        end = in.readString();
+        start = in.readInt();
+        end = in.readInt();
         day = in.readInt();
     }
 
@@ -24,8 +24,8 @@ public class CourseModel implements Parcelable {
         dest.writeString(id);
         dest.writeString(name);
         dest.writeString(lecturer_id);
-        dest.writeString(start);
-        dest.writeString(end);
+        dest.writeInt(start);
+        dest.writeInt(end);
         dest.writeInt(day);
     }
 
@@ -70,19 +70,19 @@ public class CourseModel implements Parcelable {
         this.lecturer_id = lecturer_id;
     }
 
-    public String getStart() {
+    public int getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(int start) {
         this.start = start;
     }
 
-    public String getEnd() {
+    public int getEnd() {
         return end;
     }
 
-    public void setEnd(String end) {
+    public void setEnd(int end) {
         this.end = end;
     }
 
@@ -94,7 +94,7 @@ public class CourseModel implements Parcelable {
         this.day = day;
     }
 
-    public CourseModel(String id, String name, String lecturer_id, String start, String end, int day) {
+    public CourseModel(String id, String name, String lecturer_id, int start, int end, int day) {
         this.id = id;
         this.name = name;
         this.lecturer_id = lecturer_id;

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Edit Course" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp">
+
+
+            <TextView
+                android:id="@+id/labelName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Nama"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="524dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/labelName" />
+
+
+            <TextView
+                android:id="@+id/labelLecturer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Lecturer"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/inputName" />
+
+            <Spinner
+                android:id="@+id/spinnerLecturer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/labelLecturer" />
+
+            <TextView
+                android:id="@+id/labelTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Time"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/spinnerLecturer" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/layoutTime"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/labelTime">
+
+                <Spinner
+                    android:id="@+id/spinnerDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <Spinner
+                    android:id="@+id/spinnerStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <Spinner
+                    android:id="@+id/spinnerEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Edit Course"
+                app:layout_constraintTop_toBottomOf="@id/layoutTime" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Delete Course"
+                app:layout_constraintTop_toBottomOf="@id/buttonEdit" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

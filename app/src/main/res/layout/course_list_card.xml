@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:theme="@android:style/Theme.Light"
+    android:layout_margin="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imagePhoto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorPrimary"
+            app:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imagePhoto"
+            android:text="Nama Saya Panjang banget sampai susah masuk"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/textLecturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lecturer Name"
+            android:layout_toEndOf="@+id/imagePhoto"
+            android:layout_below="@+id/textName">
+        </TextView>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/imagePhoto"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textDay"
+            android:text="Day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/divider">
+        </TextView>
+        <TextView
+            android:id="@+id/textTime"
+            android:text="Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textDay">
+        </TextView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

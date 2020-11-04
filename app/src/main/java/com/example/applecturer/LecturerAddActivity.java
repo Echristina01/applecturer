@@ -31,7 +31,7 @@ public class LecturerAddActivity extends AppCompatActivity {
     EditText inputName, inputExpertise;
     RadioGroup rgGender;
     Button buttonRegister;
-    int id = 0;
+    String id;
     String name = "", expertise = "", gender = "";
     LecturerModel currentLecturer;
 
@@ -65,7 +65,9 @@ public class LecturerAddActivity extends AppCompatActivity {
     private void register() {
 //        System.out.println(mDatabase.child("lastid").toString());
 
-        id = Integer.parseInt(mDatabase.child("lastid").toString()) + 1;
+//        id = Integer.parseInt(mDatabase.child("lastid").toString()) + 1;
+        id = mDatabase.child("lecturer").push().getKey();;
+
         name = inputName.getText().toString();
         expertise = inputExpertise.getText().toString();
 
@@ -80,7 +82,6 @@ public class LecturerAddActivity extends AppCompatActivity {
         mDatabase.child(String.valueOf(id)).setValue(currentLecturer).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                mDatabase.child("lastid").setValue(String.valueOf(id));
                 Toast.makeText(LecturerAddActivity.this, "Added a new lecturer", Toast.LENGTH_SHORT).show();
                 currentActivity.finish();
             }
